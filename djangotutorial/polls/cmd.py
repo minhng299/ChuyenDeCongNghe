@@ -1,3 +1,5 @@
+from polls.models import Question
+import datetime
 Question.objects.all()
 from django.utils import timezone
 q = Question(question_text="What's new?", pub_date=timezone.now())
