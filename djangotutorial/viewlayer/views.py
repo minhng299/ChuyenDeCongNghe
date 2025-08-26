@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 import datetime
+from django.views.generic import TemplateView
+from django.views import View
+import asyncio
 # Create your views here.
 
 def special_case_2003(request):
@@ -34,3 +37,13 @@ def my_view(request):
         return HttpResponse(status=404)
     else:
         return HttpResponse(status=201)
+    
+    
+class AboutView(TemplateView):
+    template_name = "viewlayer/about.html"
+
+class AsyncView(View):
+    async def get(self, request, *args, **kwargs):
+        # Perform io-blocking view logic using await, sleep for example.
+        await asyncio.sleep(1)
+        return HttpResponse("Hello async world!")

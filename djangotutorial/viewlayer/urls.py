@@ -9,4 +9,6 @@ urlpatterns = [
     path("articles/<int:year>/<int:month>/<slug:slug>/", views.article_detail),
     path("current_datetime/", views.current_datetime),
     path("my_view/", views.my_view),
+    path("about/", views.AboutView.as_view()),
+    path("async/", views.AsyncView.as_view()),
 ]
